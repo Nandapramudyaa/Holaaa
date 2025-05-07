@@ -1,2 +1,232 @@
-# Holaaa
-web
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hiii</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a0e9e0, #7ed6c3);
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 60px auto;
+      background: #ffffffd9;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      padding: 40px;
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2.title {
+      text-align: center;
+      color: #11999e;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-group {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 8px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #40c9a2;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #34b092;
+    }
+
+    .letter p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .heart {
+      text-align: center;
+      font-size: 40px;
+      animation: pulse 1s infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); color: #1abc9c; }
+      50% { transform: scale(1.1); color: #16a085; }
+      100% { transform: scale(1); color: #1abc9c; }
+    }
+
+    /* Fireworks */
+    .fireworks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .fireworks div {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: explode 1.2s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      .container {
+        margin: 30px 15px;
+        padding: 25px;
+      }
+
+      h2.title {
+        font-size: 20px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fireworks Container -->
+  <div class="fireworks" id="fireworks"></div>
+
+  <div class="container">
+    <h2 class="title">💌Little things of you<3💌</h2>
+
+    <div class="section active" id="q1">
+      <p>Halooo, kamu fauzi adam prasetyo bukan?</p>
+      <div class="btn-group">
+        <button onclick="next('q1','q2')">Yup</button>
+        <button onclick="next('q1','q2')"> Nonono</button>
+      </div>
+    </div>
+
+    <div class="section" id="q2">
+      <p>Tau ga hari ini tanggal berapa?</p>
+      <div class="btn-group">
+        <button onclick="next('q2','q3')">Tau dong! 💖</button>
+        <button onclick="next('q2','q3')">Engga tau, lupa😳</button>
+      </div>
+    </div>
+
+    <div class="section" id="q3">
+      <p>Kamu penasaran nggak sih, aku mau ngapain hari ini buat kamu?</p>
+      <div class="btn-group">
+        <button onclick="next('q3','q4'); startFireworks();">Iya, aku penasaran 🥺</button>
+        <button onclick="next('q3','q4'); startFireworks();">Engga biasa aja</button>
+      </div>
+    </div>
+
+    <div class="section" id="q4">
+      <p>Ini gajelas banget yakan, kek aneh yakan?</p>
+      <div class="btn-group">
+        <button onclick="next('q4','q5'); startFireworks();">Iya, Aneh</button>
+        <button onclick="next('q4','q5'); startFireworks();">Gajelas</button>
+      </div>
+    </div>
+
+    <div class="section" id="q5">
+      <p>Kalau aku bilang ini tentang orang spesial…,kamu mau lanjut, kan?</p>
+      <div class="btn-group">
+        <button onclick="next('q5','q6'); startFireworks();">Iyaaa cepetan</button>
+        <button onclick="next('q5','q6'); startFireworks();">Engga, aku kecewa</button>
+      </div>
+    </div>
+
+    <div class="section" id="q6">
+      <p>Boleh nggak aku cerita dikit soal orang yang luar biasa banget?</p>
+      <div class="btn-group">
+        <button onclick="next('q6','letter'); startFireworks();">Boleh donggg!</button>
+        <button onclick="next('q6','letter'); startFireworks();">Engga usah</button>
+      </div>
+    </div>
+
+    <div class="section letter" id="letter">
+      <p>His name is Fauzi Adam Prasetyo, born on May 18, 2004, and he lives in Kedunglumbu, Pasar Kliwon. His favorite color is turquoise green, but he also likes black, white, and grey — he’s got a soft spot for those monochrome vibes. He loves fried rice (I think that’s still his favorite?), but honestly, he’ll happily eat just about anything with a smile. One of his favorite hobbies is… sleeping. Yup, that’s his ultimate form of peace (but shhh, let’s keep that between us). He’s also a gamer through and through — the type who sets alarms just so he doesn’t miss game time. Oh, and his favorite number is 18, which makes his birthday feel even more special.</p>
+      <p>Sometimes, he can be really stubborn — he argues back even when I’m just trying to help, but that’s just part of his charm. It makes him feel real, raw, and perfectly imperfect.</p>
+      <p>He gets grumpy when my signal’s bad, and he’ll occasionally be in a bad mood for no reason. His laugh? Rare. But when it does come out, it’s seriously the cutest thing. I don’t know why he doesn’t laugh more often, but even when he’s serious, he somehow still looks so handsome. The way he shows love might be different, but I absolutely adore it when he’s neat and tidy. There’s something about him being organized that makes him look extra refined — like he’s totally got his life together.</p>
+      <p>His special nickname is “Ojik,” which his friends and loved ones use, but I prefer calling him “Adam.” Although he’s cool with anything I call him, most of the time I just end up calling him “Sayang.” His classic excuses when he’s sleepy? “I haven’t slept yet,” “I drank coffee yesterday,” or “My sleep schedule is all flipped.” And when he gets super serious, he furrows his brows, gives you this intense stare, flares his nose, pouts his lips — and then just goes silent. Oh, and let’s not forget his adorable cat Cimo, who’s just as quirky and lovable as he is.</p>
+      <p>Alright, that's enough of me rambling about him... you’re probably smiling to yourself by now. 😚</p>
+      <p>I’m so grateful to have you in my life, and today, as we celebrate your special day, I just want to remind you of how incredibly important you are to me. Every moment spent with you feels like a gift, and I couldn’t ask for a better person to share my days with. From your little habits to the way you always manage to make me smile, you bring so much happiness into my life. You brighten even my dullest days.</p>
+      <p>On this special day, I want to wish you the happiest birthday, Sayang. May this year bring you even more joy, love, and success than ever before. I hope every dream you hold gets a little closer, and that you continue to grow into the amazing person you already are. You’re kind, thoughtful, and so full of life — and I’m beyond lucky to be by your side. I can’t wait to create more memories with you in the days to come.</p>
+      <p>Happy Birthday, Fauzi Adam Prasetyo! You deserve all the love, laughter, and happiness in the world — and I’ll always be here, loving you, cheering you on, and holding your hand through it all.</p>
+      <p> I love you so, so much! 💚</p>
+      <p style="margin-top: 30px;"><strong>Selamat Ulang Tahun, Sayang! 🎂💖</strong></p>
+      <div class="heart">💚</div>
+    </div>
+  </div>
+
+  <script>
+    function next(current, next) {
+      document.getElementById(current).classList.remove("active");
+      document.getElementById(next).classList.add("active");
+    }
+
+    function startFireworks() {
+      const fireworks = document.getElementById('fireworks');
+      for (let i = 0; i < 40; i++) {
+        const dot = document.createElement('div');
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.top = Math.random() * 100 + '%';
+        dot.style.background = getRandomColor();
+        fireworks.appendChild(dot);
+        setTimeout(() => {
+          dot.remove();
+        }, 1200);
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ['#ffffff', '#f1c40f', '#e67e22', '#1abc9c', '#2ecc71', '#9b59b6'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
+ 
